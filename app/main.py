@@ -8,9 +8,24 @@ from flask import Flask, request, render_template, jsonify
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
+mongodb_uri = os.getenv(key="MONGO_DB_URL")
+client = MongoClient(mongodb_uri, server_api = ServerApi('1'))
+try:
+    client.admin.command('ping')
+    db = client["churn_db"]
+    collection = db["churn_collection"]
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
 # Load the model once at startup
 MODEL_PATH = os.path.join(project_root, "models", "best_model_random_forest.joblib")
 model = None
@@ -106,7 +121,25 @@ def predict():
         "drivers": drivers,
         "insight": "Customer is at high risk due to short tenure and high monthly charges. Recommend switching to a long-term contract." if is_churn else "Customer shows high loyalty indicators. Continue engagement with value-added services."
     }
-    
+
+    import json
+    try:
+        store_data = {"input_data": input_data, "results": results}
+        
+        # Serialize and deserialize to force all types into native Python/JSON types
+        # This completely avoids any MongoDB "InvalidDocument" type errors caused by numpy or hidden types.
+        clean_data = json.loads(json.dumps(store_data, default=str))
+        
+        # save data to mongodb
+        db_result = collection.insert_one(clean_data)
+        print(f"Data successfully stored to database with id: {db_result.inserted_id}")
+        
+        # Add the DB ID to the results so you can see it succeeded on the frontend!
+        results["db_inserted_id"] = str(db_result.inserted_id)
+    except Exception as e:
+        print(f"MongoDB Insert Error: {e}") 
+        results["db_error"] = str(e)
+          
     return jsonify(results)
 
 if __name__ == '__main__':
