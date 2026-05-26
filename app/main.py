@@ -50,6 +50,18 @@ def index():
     """Render the main dashboard."""
     return render_template('index.html')
 
+@app.route('/documentation')
+def documentation():
+    """Render the documentation page."""
+    return render_template('documentation.html')
+
+@app.route('/tutorial')
+def tutorial():
+    """Render the tutorial page."""
+    return render_template('tutorial.html')
+
+
+
 @app.route('/predict', methods=['POST'])
 def predict():
     """Real prediction API using Random Forest and Segmentation logic."""

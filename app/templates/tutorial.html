@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial | ChurnGuard AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .content-container {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .page-title {
+            margin-bottom: 2rem;
+            color: var(--text-main, #fff);
+        }
+        .doc-section {
+            margin-bottom: 2rem;
+        }
+        .doc-section h2 {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        .doc-section p {
+            color: var(--text-muted, #a0aec0);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .step-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .step-number {
+            background-color: var(--accent-indigo);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo-section">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo-icon" style="height: 32px; width: auto; object-fit: contain; border-radius: 4px;">
+                <span class="logo-text">ChurnGuard AI</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">New Prediction</a></li>
+                    <li><a href="#">Model Info</a></li>
+                    <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
+                </ul>
+            </nav>
+            <div class="user-section">
+                <img src="https://ui-avatars.com/api/?name=Admin&background=1a1b4b&color=fff" alt="User" class="avatar">
+            </div>
+        </header>
+
+        <main class="content-container">
+            <h1 class="page-title">Getting Started Tutorial</h1>
+            
+            <div class="card doc-section">
+                <div class="card-header">
+                    <i data-lucide="play-circle"></i>
+                    <span>Quick Start Guide</span>
+                </div>
+                <div style="padding: 1rem;">
+                    <p>Follow these simple steps to generate your first customer churn prediction and interpret the results.</p>
+                    
+                    <div class="step-container">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Input Customer Data</h3>
+                            <p style="margin-bottom: 0;">Fill out the Demographics, Services, and Account panels on the main dashboard with the customer's current profile.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Generate Prediction</h3>
+                            <p style="margin-bottom: 0;">Click the primary action button to send the data to the machine learning engine.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-container">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Review Insights</h3>
+                            <p style="margin-bottom: 0;">Analyze the Risk Score, Key Drivers, and Actionable Insights provided on the sidebar to build your retention strategy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card doc-section">
+                <div class="card-header">
+                    <i data-lucide="video"></i>
+                    <span>Video Walkthrough</span>
+                </div>
+                <div style="padding: 1rem;">
+                    <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 4rem; text-align: center; border: 1px dashed rgba(255,255,255,0.2);">
+                        <i data-lucide="play" style="width: 48px; height: 48px; color: var(--accent-indigo); margin-bottom: 1rem;"></i>
+                            <video width="640" height="360" controls>
+                            <source src="movie.mp4" type="video/mp4">
+                            </video>
+                        <p>[Placeholder for embedded video tutorial]</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div>© 2024 ChurnGuard AI. Enterprise Prediction Engine.</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Security</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

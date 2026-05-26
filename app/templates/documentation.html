@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | ChurnGuard AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .content-container {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .page-title {
+            margin-bottom: 2rem;
+            color: var(--text-main, #fff);
+        }
+        .doc-section {
+            margin-bottom: 2rem;
+        }
+        .doc-section h2 {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        .doc-section p {
+            color: var(--text-muted, #a0aec0);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo-section">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo-icon" style="height: 32px; width: auto; object-fit: contain; border-radius: 4px;">
+                <span class="logo-text">ChurnGuard AI</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">New Prediction</a></li>
+                    <li><a href="#">Model Info</a></li>
+                    <li><a href="{{ url_for('documentation') }}" class="active">Documentation</a></li>
+                </ul>
+            </nav>
+            <div class="user-section">
+                <img src="https://ui-avatars.com/api/?name=Admin&background=1a1b4b&color=fff" alt="User" class="avatar">
+            </div>
+        </header>
+
+        <main class="content-container">
+            <h1 class="page-title">Documentation</h1>
+            
+            <div class="card doc-section">
+                <div class="card-header">
+                    <i data-lucide="book"></i>
+                    <span>Introduction</span>
+                </div>
+                <div style="padding: 1rem;">
+                    <p>Welcome to the ChurnGuard AI documentation. Here you can add details about how the predictive model works, the data schema required, and API usage instructions.</p>
+                    <p>[Placeholder for introduction content]</p>
+                </div>
+            </div>
+
+            <div class="card doc-section">
+                <div class="card-header">
+                    <i data-lucide="database"></i>
+                    <span>Data Schema</span>
+                </div>
+                <div style="padding: 1rem;">
+                    <p>Detailed breakdown of the required fields, data types, and allowed values for the prediction engine.</p>
+                    <p>[Placeholder for schema definitions]</p>
+                </div>
+            </div>
+            
+            <div class="card doc-section">
+                <div class="card-header">
+                    <i data-lucide="server"></i>
+                    <span>API Reference</span>
+                </div>
+                <div style="padding: 1rem;">
+                    <p>Instructions for developers on how to interact with the /predict endpoint programmatically.</p>
+                    <p>[Placeholder for API docs]</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div>© 2024 ChurnGuard AI. Enterprise Prediction Engine.</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Security</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

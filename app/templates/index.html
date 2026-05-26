@@ -14,14 +14,14 @@
     <div class="app-container">
         <header>
             <div class="logo-section">
-                <div class="logo-icon"></div>
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo-icon" style="height: 32px; width: auto; object-fit: contain; border-radius: 4px;">
                 <span class="logo-text">ChurnGuard AI</span>
             </div>
             <nav>
                 <ul>
                     <li><a href="#" class="active">New Prediction</a></li>
                     <li><a href="#">Model Info</a></li>
-                    <li><a href="#">Documentation</a></li>
+                    <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
                 </ul>
             </nav>
             <div class="user-section">
@@ -35,7 +35,7 @@
                 <p>Empower your retention strategy with real-time AI insights. Input customer data below to see churn probability instantly and receive actionable recommendations.</p>
                 <div class="hero-btns">
                     <button class="btn btn-primary">Start New Prediction</button>
-                    <button class="btn btn-secondary">View Tutorials</button>
+                    <button class="btn btn-secondary"><a href="{{ url_for('tutorial') }}" style="text-decoration: none; color: inherit;"> Tutorial </a></button>
                 </div>
             </div>
             <div class="hero-image">
