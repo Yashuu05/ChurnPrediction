@@ -118,16 +118,16 @@
                     <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 4rem; text-align: center; border: 1px dashed rgba(255,255,255,0.2);">
                         <i data-lucide="play" style="width: 48px; height: 48px; color: var(--accent-indigo); margin-bottom: 1rem;"></i>
                             <video width="640" height="360" controls>
-                            <source src="movie.mp4" type="video/mp4">
+                            <source src="{{ url_for('static', filename='tutorial_vid.mp4') }}" type="video/mp4">
                             </video>
-                        <p>[Placeholder for embedded video tutorial]</p>
+                        <p>watch video tutorial</p>
                     </div>
                 </div>
             </div>
         </main>
 
         <footer>
-            <div>© 2024 ChurnGuard AI. Enterprise Prediction Engine.</div>
+            <div>© 2024 ChurnGuard AI. Churn Prediction Engine.</div>
             <div>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Security</a>
